@@ -645,29 +645,6 @@ function Init(){
 	for (let i = 0; i < 4; i++) {
 		CreateNewParticleType();
 	}
-	/*
-	
-	var container = document.querySelector("#timestable");
-	
-	for (var i = 0; i < 100; i++){
-		var box = document.createElement("p");
-		box.classList.add("timestableboxes");
-		var TextInsideBox = document.createTextNode(i + 1);
-		box.appendChild(TextInsideBox);
-		box.style.backgroundColor = getRandomRGBColor();
-		container.appendChild(box);
-	}
-	console.log(container);
-	console.log(container.children[1]);
-	
-	*/
-	
-	
-	//for (let i = 0; i < ParticleAmt; i++){
-		//BlueParticles.push(new Particle(Math.random() * canvas.width / 2 - 1, Math.random() * canvas.height / 2 - 1,"blue"));
-		//RedParticles.push(new Particle(Math.random() * canvas.width / 2 - 1, Math.random() * canvas.height / 2 - 1, "red"));
-		//GreenParticles.push(new Particle(Math.random() * canvas.width / 2- 1,Math.random() * canvas.height /2 - 1,"green" ));
-	//}
 	
 	MouseParticle.push(new Particle(0,0 ,"white", document.getElementById('MouseRangeValue').value, -1));
 	
@@ -725,10 +702,6 @@ function Update(){
 		Render();
 		//MouseActive = false;
 	}
-	else{
-		console.log("noton");
-	}
-	console.log("test githubchange");
 	requestAnimationFrame(Update);
 }
 function Render(){
@@ -742,20 +715,8 @@ function Render(){
 	}
 	if (MouseActive){
 		MouseParticle[0].RenderParticle(ctx);
-	}
-	
-	ctx.fillStyle = this.c;
-	ctx.fillRect(canvas.width / devicePixelRatio - 10, canvas.height / devicePixelRatio - 10, 10, 10);
-	console.log(canvas.width / devicePixelRatio);
-	
-	
-	ctx.fillStyle = "red";
-	ctx.fillRect(250 - 20, 250 - 20, 20, 20);
-	console.log(canvas.width / devicePixelRatio);
-	//console.log(canvas.style.width);
-	
+	}	
 }
-//console.log(RedParticles);
 Init();
 Update();
 
