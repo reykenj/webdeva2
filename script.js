@@ -728,6 +728,7 @@ function Update(){
 	else{
 		console.log("noton");
 	}
+	console.log("test githubchange");
 	requestAnimationFrame(Update);
 }
 function Render(){
