@@ -58,10 +58,6 @@ li{
   transform: translate(0, -11px) rotate(45deg);
 }
 
-
-
-
-
 .floatleft {
     float: left;
 }
@@ -191,11 +187,11 @@ button{
 }
 .emergence-wrapper *{
 	margin: 1em;
-    overflow-wrap: break-word; /* Ensure long words break */
+    overflow-wrap: break-word; /* ensure long words break */
 	
 }
 .emergence-wrapper img{
-	flex-shrink: 0; /* Prevent the image from shrinking */
+	flex-shrink: 0; /* prevent the image from shrinking */
 }
 .emergence-image{
 	max-height: 10em;
@@ -213,6 +209,7 @@ button{
 	background-color:#06CD04;
 	border-radius: 16px;
 	padding: 1em;
+	margin: 0.5em;
 	cursor:pointer;
 	display:block;
 	box-shadow: 0 9px #999;
@@ -235,9 +232,6 @@ button{
 	transition: 0.4s;
 	transition-property: all;
 }
-.ParticleAmount{
-	
-}
 #simulation-wrapper{
 	display: grid;
 	grid-template-columns: 0.5fr 1fr;
@@ -256,7 +250,7 @@ button{
 	
 }
 #SimulationInteraction{
-	overflow-y: scroll;
+	overflow-y: scroll; /*So that the canvas can be in full view no matter what, and scrolling wont ruin it for desktop*/
 }
 .TypeInteractionContainer *{
 	display:inline-block;
@@ -279,10 +273,6 @@ button{
 	width: auto;
 	margin: 0.1em 0.0em
 }
-.ForceContainer{
-	
-}
-
 .SingleForceContainer *{
 	margin: 0.5em;
 }
@@ -380,11 +370,7 @@ button{
 		flex: 100%;
 	}
 	
-	
-	
-	.ParticleAmount{
-	
-	}
+
 	#simulation-wrapper{
 		display: grid;
 		grid-template-columns: 1fr;
@@ -426,9 +412,6 @@ button{
 		box-sizing: border-box;
 		width: auto;
 		margin: 0.1em 0.0em
-	}
-	.ForceContainer{
-
 	}
 }
 

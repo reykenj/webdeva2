@@ -5,23 +5,21 @@
 		
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<title>WebDevAssignment2_230343S</title>
-		<meta name="mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-		<meta name="apple-mobile-web-app-title" content="some web app!!!">
-		<!-- get icons from https://favicon.io/ -->
+		<meta name="mobile-web-app-capable" content="ArtificialLife">
+		<meta name="apple-mobile-web-app-capable" content="ArtificialLife">
+		<meta name="apple-mobile-web-app-status-bar-style" content="ArtificialLife">
+		<meta name="apple-mobile-web-app-title" content="ArtificialLife">
 		<link rel="icon" type="image/x-icon" href="images/favicon.ico">
 		<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-		<!--for android-->
 		<link rel="manifest" href="images/site.webmanifest">
-		<link rel="stylesheet" href="MyCSS.css">
+		<link rel="stylesheet" href="style.css">
 	</head>
 
 	<body>
 		<script src="script.js" defer></script>
-		<div id="main">
+		<div id="main"> <!-- Enveloped everything for the margin when sidebar is open-->
 			<nav id="MainNavContainer">
 				<p class="nav-item1">Artificial Life</p>
 				<a class="nav-item2" id="full-screen-button">Fullscreen Button</a>
@@ -34,20 +32,20 @@
 				<div class="bar2"></div>
 				<div class="bar3"></div>
 			</div>
-			<div class="page">
+			<div class="page"> <!-- About Page -->
 				<div class="index-wrapper">
-					<div class="index-grid-item1" id="index-explanation">
+					<div class="index-grid-item1" id="index-explanation"> <!-- Added ids on both index grid items to change orders for later -->
 						<div class="centered">
 							<h2>What is Artificial Life?</h2>
 						</div>
 						<p>Artificial life (ALife or A-Life) is a field of study wherein researchers examine systems related to natural life, its processes, and its evolution, through the use of simulations with computer models, robotics, and biochemistry.</p>
 					</div>
-					<div class="index-grid-item1" id="index-image">
+					<div class="index-grid-item1" id="index-image"> 
 						<img src="images/ArtificialLife1Image1.jpg" alt="ArtificalLifeImage1" class="index-grid-image centered">
 					</div>
 				</div>
 				<div class="centered"><h1>Techniques</h1></div>
-
+				<!-- Techniques are naturally display: none, only being visible using javascript -->
 				<div class="technique">
 					<div class="index-wrapper fade">
 						<div class="index-grid-item1">
@@ -87,15 +85,14 @@
 					<div class="centered"><h2>3/3</h2></div>
 				</div>
 				
+				<!-- Using &lt; because the symbol '<' cannot be used-->
 				<div class="floatleft">
 					<button id="technique-left-button" class="technique-button"> &lt; </button>
 				</div>
 				<div class="floatright">
 					<button id="technique-right-button" class="technique-button"> > </button>
 				</div>
-				
-				<br>
-				<div class="clearfix"></div> <!-- Add this line -->
+				<div class="clearfix"></div> <!-- So that qr code wont be affected by the floated buttons and can start on a new line -->
 				<div class="centered">
 					<img src="images/QrCode.png" alt="QRCode" class="QRcode">
 					<h2>Sources:</h2>
@@ -104,8 +101,8 @@
 						<a class="Source" href="https://www.youtube.com/watch?v=mSy4z8nDLno">Artificial Life uses Machine Learning to learn how to survive</a>
 					</div>
 				</div>
-			</div><!-- About -->
-			<div class="page"> <!-- Emergence -->
+			</div>
+			<div class="page"> <!-- Emergence Page-->
 				<div class="centered">
 					<h1>What Is Emergence?</h1>
 				</div>
@@ -118,7 +115,7 @@
 					<h1>How does Emergence occur?</h1>
 				</div>
 				<div class="emergence-wrapper flex">
-					<div>
+					<div> <!-- Div for all elements below to count as one element for flex -->
 						<p>Emergence happens when simple components interact according to basic rules, leading to the formation of complex systems with new properties that are not apparent from the individual parts alone.
 						</p>
 						<ul>
@@ -148,18 +145,18 @@
 				</div>
 				<div class="emergence-wrapper">
 					<div class="flex flex-wrap">
-						<p id="emergence-question-count">Questions: 0/10</p>
-						<p id="emergence-score">Score: 0/10</p>
-						<p id="emergence-score-percentage">Score Percentage: 0%</p>
+						<p id="emergence-question-count">Questions: 0</p> <!-- Amount of questions Done -->
+						<p id="emergence-score">Score: 0</p> <!-- Score Slot-->
+						<p id="emergence-score-percentage">Score Percentage: 0%</p> <!-- Win Percentage Slot-->
 					</div>
-					<p id="emergence-question-slot">Questionsssssss</p>
+					<p id="emergence-question-slot">Questionsssssss</p> <!-- Question Slot -->
 					<div class="flex flex-wrap">
-						<a class="emergence-answer">1</a>
+						<a class="emergence-answer">1</a> <!-- Answer Slots -->
 						<a class="emergence-answer">2</a>
 						<a class="emergence-answer">3</a>
 						<a class="emergence-answer">4</a>
 					</div>
-					<a id="emergence-submit" class="TranslateButton">Submit</a>
+					<a id="emergence-submit" class="TranslateButton">Submit</a> <!-- Submit Button-->
 				</div>
 				<div class="centered">
 					<img src="images/QrCode.png" alt="QRCode" class="QRcode">
@@ -170,7 +167,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="page"> <!-- Simulations -->
+			<div class="page"> <!-- Simulations Page -->
 				<div id="simulation-wrapper">
 					<div class='simulation-grid-item' id="SimulationInteraction">
 						<hr>
