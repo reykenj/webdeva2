@@ -48,41 +48,37 @@ function UpdatePage(numberchosen = 0){ // simpler version of the update techniqu
 
 
 // Function to enter fullscreen mode
-function enterFullscreen() {
-	if (document.documentElement.requestFullscreen) {
-		document.documentElement.requestFullscreen();
-	} else if (document.documentElement.mozRequestFullScreen) { // Firefox
-		document.documentElement.mozRequestFullScreen();
-	} else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari, and Opera
-		document.documentElement.webkitRequestFullscreen();
-	} else if (document.documentElement.msRequestFullscreen) { // IE/Edge
-		document.documentElement.msRequestFullscreen();
-	}
-}// Function to exit fullscreen mode
-function exitFullscreen() {
-	if (document.exitFullscreen) {
-		document.exitFullscreen();
-	} else if (document.mozCancelFullScreen) { // Firefox
-		document.mozCancelFullScreen();
-	} else if (document.webkitExitFullscreen) { // Chrome, Safari, and Opera
-		document.webkitExitFullscreen();
-	} else if (document.msExitFullscreen) { // IE/Edge
-		document.msExitFullscreen();
-	}
+
+function toggleFullScreen() {
+  var doc = window.document;
+  var docEl = doc.documentElement;
+
+  var requestFullScreen =
+    docEl.requestFullscreen ||
+    docEl.mozRequestFullScreen ||
+    docEl.webkitRequestFullScreen ||
+    docEl.msRequestFullscreen;
+  var cancelFullScreen =
+    doc.exitFullscreen ||
+    doc.mozCancelFullScreen ||
+    doc.webkitExitFullscreen ||
+    doc.msExitFullscreen;
+
+  if (
+    !doc.fullscreenElement &&
+    !doc.mozFullScreenElement &&
+    !doc.webkitFullscreenElement &&
+    !doc.msFullscreenElement
+  ) {
+    requestFullScreen.call(docEl);
+  } else {
+    cancelFullScreen.call(doc);
+  }
 }
 
 
-var fullscreen = false; //This variable was made to tell whether or not the user is on fullscreen or not, since the default is being on window screen, we can just set this to false/
-
 document.getElementById('full-screen-button').addEventListener('click', function() {
-	if (fullscreen){
-		exitFullscreen();
-		fullscreen = false;
-	}
-	else{
-		enterFullscreen();
-		fullscreen = true;
-	}
+	toggleFullScreen();
 });
 
 
