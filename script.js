@@ -746,6 +746,11 @@ function Render(){
 	ctx.fillStyle = this.c;
 	ctx.fillRect(canvas.width / devicePixelRatio - 10, canvas.height / devicePixelRatio - 10, 10, 10);
 	console.log(canvas.width / devicePixelRatio);
+	
+	
+	ctx.fillStyle = "red";
+	ctx.fillRect(250 - 20, 250 - 20, 20, 20);
+	console.log(canvas.width / devicePixelRatio);
 	//console.log(canvas.style.width);
 	
 }
