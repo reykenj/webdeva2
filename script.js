@@ -594,6 +594,14 @@ function getMousePosition(canvas, event) {
     let y = (event.clientY - rect.top) * scaleY;
     return new Vector2(x, y);
 }
+// Function to get touch position
+function getTouchPosition(canvas, touchEvent) {
+    var rect = canvas.getBoundingClientRect();
+	let x = (touchEvent.touches[0].clientX - rect.left) * scaleX;
+    let y = (touchEvent.touches[0].clientY - rect.top) * scaleY;
+    return new Vector2(x, y);
+}
+
 
 canvas.addEventListener('mousedown', function(event) {
     MouseActive = true;
@@ -607,6 +615,26 @@ canvas.addEventListener('mouseup', function() {
 canvas.addEventListener('mousemove', function(event) {
     if (MouseActive) {
         MousePos = getMousePosition(canvas, event);
+    }
+});
+
+
+
+// Add touch event listeners
+canvas.addEventListener('touchstart', function(event) {
+    MouseActive = true;
+    MousePos = getTouchPosition(canvas, event);
+    event.preventDefault(); // Prevent scrolling when touching the canvas
+});
+
+canvas.addEventListener('touchend', function() {
+    MouseActive = false;
+});
+
+canvas.addEventListener('touchmove', function(event) {
+    if (MouseActive) {
+        MousePos = getTouchPosition(canvas, event);
+        event.preventDefault(); // Prevent scrolling when touching the canvas
     }
 });
 
