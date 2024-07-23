@@ -68,6 +68,13 @@ li{
 .floatright {
     float: right;
 }
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
 .centered{
 	text-align:center;
 	display: block;
@@ -177,9 +184,6 @@ button{
 	box-sizing: border-box;
 	min-height: 15em;
 	border-radius: 16px;
-	
-	
-	
 	text-align:center;
 	margin-left: auto;
 	margin-right: auto;
@@ -188,7 +192,6 @@ button{
 .emergence-wrapper *{
 	margin: 1em;
     overflow-wrap: break-word; /* Ensure long words break */
-    word-break: break-word; /* Ensure long words break */
 	
 }
 .emergence-wrapper img{
@@ -253,13 +256,7 @@ button{
 	
 }
 #SimulationInteraction{
-	overflow-y: auto;
-	
-}
-#MouseAttractionValue{
-	type="number";
-	value="0.0";
-	step="0.1";
+	overflow-y: scroll;
 }
 .TypeInteractionContainer *{
 	display:inline-block;
@@ -292,7 +289,27 @@ button{
 .ForceAttraction{
 	vertical-align: middle; /* Align vertically */
 }
+.QRcode{
+	display: inline-block;
+	max-height: 20em;
+}
+.Source{
+	width: calc(50% - 3em);
+	margin: 1.5em;
+	background: #181717;
+	border-radius: 20px;
+}
 @media screen and (max-width:800px) {
+	#full-screen-button{
+		display: none;
+	}
+	.QRcode{
+		display: none;
+	}
+	.Source{
+		flex: 100%;
+		
+	}
 	#MainNavContainer {
 		background: black;
 		z-index: 1;
@@ -388,11 +405,6 @@ button{
 	#SimulationInteraction{
 		overflow-y: auto;
 		order: 2;
-	}
-	#MouseAttractionValue{
-		type="number";
-		value="0.0";
-		step="0.1";
 	}
 	.TypeInteractionContainer *{
 		display:inline-block;

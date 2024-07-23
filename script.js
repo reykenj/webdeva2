@@ -1,16 +1,19 @@
 // JavaScript Document
 
-var PageIndex = 0;
-var PageList = document.querySelectorAll(".page");
+var PageIndex = 0; // Variable used to check what page the user is currently on, which is default to the about me page, index 0
+// Page 0: About page
+// Page 1: Emergence page
+// Page 2: Simulation page
 
-// About Variables
-var TechniqueIndex = 0;
-var TechniqueList = document.querySelectorAll(".technique");
+var PageList = document.querySelectorAll(".page"); // Gets an array of all the pages available
+
+// About Page Variables
+var TechniqueIndex = 0; // Variable used to check what technique the user is currently on in the about me page, which is default to the first technique, cellular automata, index 0
+var TechniqueList = document.querySelectorAll(".technique"); // Gets an array of all the techniques available
 //
 // Loading Page and Techniques, making default visible
-UpdateTechnique();
-UpdatePage();
-PageList[2].style.display = "none";
+UpdateTechnique(); // runs the function to make everything's display to none except the technique with the index of TechniqueIndex. Ran it on load to be able to display only the default technique
+UpdatePage();// runs the function to make everything's display to none except the page with the index of PageIndex. Ran it on load to be able to display only the default page
 //
 
 function openNav() {
@@ -42,6 +45,46 @@ function UpdatePage(numberchosen = 0){
 	PageIndex = numberchosen;
 	PageList[PageIndex].style.display = "inline";
 }
+
+
+// Function to enter fullscreen mode
+function enterFullscreen() {
+	if (document.documentElement.requestFullscreen) {
+		document.documentElement.requestFullscreen();
+	} else if (document.documentElement.mozRequestFullScreen) { // Firefox
+		document.documentElement.mozRequestFullScreen();
+	} else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+		document.documentElement.webkitRequestFullscreen();
+	} else if (document.documentElement.msRequestFullscreen) { // IE/Edge
+		document.documentElement.msRequestFullscreen();
+	}
+}// Function to exit fullscreen mode
+function exitFullscreen() {
+	if (document.exitFullscreen) {
+		document.exitFullscreen();
+	} else if (document.mozCancelFullScreen) { // Firefox
+		document.mozCancelFullScreen();
+	} else if (document.webkitExitFullscreen) { // Chrome, Safari, and Opera
+		document.webkitExitFullscreen();
+	} else if (document.msExitFullscreen) { // IE/Edge
+		document.msExitFullscreen();
+	}
+}
+
+
+var fullscreen = false;
+
+document.getElementById('full-screen-button').addEventListener('click', () => {
+	if (fullscreen){
+		exitFullscreen();
+		fullscreen = false;
+	}
+	else{
+		enterFullscreen();
+		fullscreen = true;
+	}
+});
+
 
 document.getElementById('technique-left-button').addEventListener('click', function() {
 	UpdateTechnique(-1);
@@ -517,7 +560,7 @@ function CreateNewParticleType(){
 	});
 	
 	TypeInteractionContainer.appendChild(ForceContainer);
-	document.querySelector("#SimulationInteraction").appendChild(TypeInteractionContainer);
+	document.querySelector("#TypeInteractionWrapper").appendChild(TypeInteractionContainer);
 	
 	
 	// Creating Particle Amount Input For Each Particle Type
